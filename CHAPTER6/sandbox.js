@@ -35,6 +35,6 @@ console.log(href.getAttribute('herf'));
 console.log(href.innerText='New name!');
 
 
-const randomText = document.querySelector('div > p');
-randomText.setAttribute('p','h1');
+const randomText = document.querySelector('body > div:nth-child(3) > p.error');
+randomText.setAttribute('style' ,'color:green');
 randomText.innerText='Super Test';
