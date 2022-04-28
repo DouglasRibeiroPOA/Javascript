@@ -11,18 +11,10 @@ button.addEventListener('click', () => {
     ul.prepend(li);
 });
 
-const items = document.querySelectorAll('li');
-items.forEach(element => {
-    element.addEventListener('click', e => {
-
-        console.log('event in li');
-        e.stopPropagation();
+ul.addEventListener('click', e => {
+    if (e.target.tagName === 'LI') {
         e.target.remove();
-    });
-});
+    }
 
 
-ul.addEventListener('click',e =>{
-
-    console.log('event in UL');
 });
