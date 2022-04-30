@@ -1,20 +1,19 @@
-const button = document.querySelector('button');
-const ul = document.querySelector('ul');
+const copy = document.querySelector('.copy-me');
 
-console.log(button);
-
-button.addEventListener('click', () => {
-    //ul.innerHTML += '<li>Something New</li>';
-    const li = document.createElement('li');
-    li.textContent = 'something new';
-    //ul.append(li);
-    ul.prepend(li);
+copy.addEventListener('copy', () => {
+    console.log('OI! my content is copyright');
 });
 
-ul.addEventListener('click', e => {
-    if (e.target.tagName === 'LI') {
-        e.target.remove();
-    }
+const box = document.querySelector('.box');
 
+box.addEventListener('mousemove', e => {
+    console.log( 'X => '+e.offsetX+' X => '+e.offsetY);
+
+   box.textContent = ` x pos - ${e.offsetX}  y pos - ${e.offsetY}`;
+});
+
+document.addEventListener('wheel', e=> {
+    console.log(e);
+    console.log(e.pageX, e.pageY);
 
 });
