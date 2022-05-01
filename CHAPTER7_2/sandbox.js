@@ -1,11 +1,13 @@
 const form = document.querySelector('.signup-form');
 const feedback = document.querySelector('.feedback');
 
+const pattern = /^[a-zA-Z]{6,12}$/;
+
 form.addEventListener('submit', e => {
     e.preventDefault();
 
     const username = form.username.value;
-    const pattern = /^[a-zA-Z]{6,12}$/;
+
     if (pattern.test(username)) {
         feedback.textContent = 'that username is valid!';
 
@@ -15,7 +17,16 @@ form.addEventListener('submit', e => {
 });
 
 
+form.username.addEventListener('keyup', e => {
+    let inputText = document.querySelector('#username');Ì
 
+    console.log(e);
 
-
-
+    if (pattern.test(e.target.value)) {
+        console.log('passed');
+        inputText.setAttribute('class', 'success');
+    } else {
+        console.log('failed');
+        inputText.setAttribute('class', 'error');
+    }
+});
