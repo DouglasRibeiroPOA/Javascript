@@ -14,24 +14,19 @@ form.addEventListener('submit', e => {
         }
     });
 
-
     //show results on page
-
     scrollTo(0, 0);
     const scoreBlock = document.querySelector('.result');
     console.log(scoreBlock);
     scoreBlock.classList.remove('d-none');
 
-
     var i = 0;
     const timer = setInterval(() => {
-
         if (i === score) {
             clearInterval(timer);
         }
         scoreBlock.querySelector('span').textContent = `${i}%`
         i++;
-
     }, 10);
 
 
@@ -39,4 +34,3 @@ form.addEventListener('submit', e => {
     console.log(scoreBlock);
     console.log(score);
 });
-
