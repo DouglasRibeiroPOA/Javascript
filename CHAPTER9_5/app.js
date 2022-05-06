@@ -8,11 +8,16 @@ const products = [
 ]
 
 
-const filtered = products.filter(product => product.price > 20);
-console.log(filtered);
+//const filtered = products.filter(product => product.price > 20);
+//console.log(filtered);
 
-const promos = filtered.map(product => {
-    return `the ${product.name} is ${product.price / 2}`;
-});
+//const promos = filtered.map(product => {
+ //   return `the ${product.name} is ${product.price / 2}`;
+//});
 
-console.log(promos);
+//console.log(promos);
+
+
+const promos = products
+
+
