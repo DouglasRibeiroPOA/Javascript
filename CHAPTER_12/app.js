@@ -1,16 +1,35 @@
-//dates and times
 
 
-const before = new Date('February 1 2019 7:30:59');
-const now = new Date();
-console.log(now);
-
-console.log(before.getTime());
-const zero = new Date('January 1 1970 12:00:59');
-console.log(zero.getTime());
+//----------------------------------------------------------------------------------------------------------------
 
 
+const request = new XMLHttpRequest();
 
-const diff = now.getTime() - zero.getTime();
+const getTodos = (callback) => {
 
-console.log(Math.round(((((diff/1000/60)/60)/24)/30)/12));
+    request.addEventListener('readystatechange', () => {
+        if (request.readyState === 4 && (request.status === 200)) {
+            callback(undefined, request.responseText);
+        } else if (request.readyState === 4) {
+            callback('could not make the request', undefined);
+        }
+    });
+    request.open('GET', 'https://jsonplaceholder.typicode.com/todos/');
+    request.send();
+};
+
+
+console.log(1);
+console.log(2);
+
+getTodos((err, data) => {
+    console.log('callback fired!');
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(data);
+    }
+});
+
+console.log(3);
+console.log(4);
