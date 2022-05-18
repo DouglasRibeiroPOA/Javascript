@@ -2,7 +2,7 @@
 
 const request = new XMLHttpRequest();
 
-const getTodos = (callback) => {
+const getTodos = (resource, callback) => {
 
     request.addEventListener('readystatechange', () => {
         if (request.readyState === 4 && (request.status === 200)) {
@@ -12,7 +12,7 @@ const getTodos = (callback) => {
             callback('could not make the request', undefined);
         }
     });
-    request.open('GET', 'https://jsonplaceholder.typicode.com/todos/');
+    request.open('GET', resource);
     request.send();
 };
 
@@ -20,13 +20,14 @@ const getTodos = (callback) => {
 console.log(1);
 console.log(2);
 
-getTodos((err, data) => {
-    console.log('callback fired!');
-    if (err) {
-        console.log(err);
-    } else {
+getTodos('todos/amanda.json', (err, data) => {
+    console.log(data);
+    getTodos('todos/lucca.json', (err, data) => {
         console.log(data);
-    }
+        getTodos('todos/doug.json', (err, data) => {
+            console.log(data);
+        });
+    });
 });
 
 console.log(3);
