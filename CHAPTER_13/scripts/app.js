@@ -23,17 +23,10 @@ const updatedUi = data => {
     </div>
     `;
 
-     const iconSrc = `img/icons/${weather.WeatherIcon}.svg`;
-     icon.setAttribute('src',iconSrc);
+    const iconSrc = `img/icons/${weather.WeatherIcon}.svg`;
+    icon.setAttribute('src', iconSrc);
 
-
-    let timeSrc = null;
-    if (weather.IsDayTime) {
-
-        timeSrc = 'img/day.svg'
-    } else {
-        timeSrc = 'img/night.svg'
-    }
+    let timeSrc = weather.IsDayTime === true ? 'img/day.svg' : 'img/night.svg';
 
     time.setAttribute('src', timeSrc);
 
